@@ -1,15 +1,31 @@
 // [SHARED] Helper kecil umum.
-export function formatRupiah(_n: number): string {
-  // TODO: Intl.NumberFormat("id-ID", ...)
-  throw new Error("TODO: formatRupiah");
+export function formatRupiah(n: number): string {
+  return new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    maximumFractionDigits: 0,
+  }).format(n);
 }
 
-export function parseSalaryString(_s: string): number {
-  // TODO: "Rp 4.500.000" -> 4500000
-  throw new Error("TODO: parseSalaryString");
+export function parseSalaryString(s: string): number {
+  if (!s) return 0;
+  // Menghapus karakter non-digit: "Rp 4.500.000" -> 4500000
+  const clean = s.replace(/\D/g, "");
+  return clean ? parseInt(clean, 10) : 0;
 }
 
-export function formatDateTime(_iso: string): string {
-  // TODO
-  throw new Error("TODO: formatDateTime");
+export function formatDateTime(iso: string): string {
+  try {
+    const d = new Date(iso);
+    if (isNaN(d.getTime())) return iso;
+    return d.toLocaleString("id-ID", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  } catch {
+    return iso;
+  }
 }

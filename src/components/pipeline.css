@@ -1,42 +1,42 @@
-/* [ORANG 2] Styling War Room & Detail Lamaran bergaya Clean SaaS Dashboard */
+/* [ORANG 2 & 3] Styling War Room, Offer Comparator, & Detail Lamaran bergaya Clean SaaS Dashboard */
 
 .wr-container {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  background-color: #f8fafc;
-  padding: 8px 0;
+  background-color: transparent;
   color: #1e293b;
-  font-family: inherit;
 }
 
-/* Card Modern bergaya Dashboard */
+/* Card Modern Tumpul */
 .wr-card {
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 14px;
-  padding: 16px;
+  border-radius: 18px;
+  padding: 18px 20px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
   transition: all 0.2s ease;
 }
 
 .wr-card-hover:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
   border-color: #cbd5e1;
+  transform: translateY(-2px);
 }
 
-/* Conflict Banner Modern */
+/* Conflict Banner Modern Tumpul */
 .wr-conflict-banner {
   background: #fff5f5;
   border: 1px solid #fed7d7;
-  border-left: 5px solid #e53e3e;
-  border-radius: 12px;
-  padding: 14px 18px;
+  border-left: 6px solid #e53e3e;
+  border-radius: 16px;
+  padding: 16px 20px;
   color: #9b2c2c;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
-/* Filters bar */
+/* Filters Bar */
 .wr-filter-bar {
   display: flex;
   flex-wrap: wrap;
@@ -45,24 +45,26 @@
   gap: 12px;
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 14px;
-  padding: 12px 18px;
+  border-radius: 16px;
+  padding: 14px 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .wr-input {
   background: #f8fafc;
   border: 1px solid #cbd5e1;
-  border-radius: 10px;
-  padding: 8px 12px;
+  border-radius: 12px;
+  padding: 9px 14px;
   font-size: 14px;
   color: #1e293b;
   outline: none;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .wr-input:focus {
-  border-color: #0d9488;
+  border-color: #0f766e;
   background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.12);
 }
 
 /* Grid Layout War Room */
@@ -72,15 +74,15 @@
   gap: 16px;
 }
 
-/* Tombol Aksi */
+/* Tombol Aksi Tumpul (Rounded 12px - 9999px) */
 .wr-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 7px 14px;
-  border-radius: 10px;
+  padding: 8px 16px;
+  border-radius: 12px;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   border: 1px solid transparent;
   transition: all 0.15s ease;
@@ -113,12 +115,12 @@
   background: #fef2f2;
 }
 
-/* Badges */
+/* Badges Pill */
 .wr-pill {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  padding: 3px 10px;
+  padding: 4px 12px;
   border-radius: 9999px;
   font-size: 12px;
   font-weight: 600;
@@ -144,23 +146,24 @@
   }
 }
 
-/* State selector boxes (seperti "Start With a Template" di referensi) */
+/* Selector Box Tumpul ("Start with Template" style) */
 .wr-selector-box {
   border: 1px solid #e2e8f0;
-  border-radius: 10px;
-  padding: 10px 14px;
+  border-radius: 14px;
+  padding: 12px 16px;
   background: #f8fafc;
   cursor: pointer;
   text-align: left;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
 }
 
 .wr-selector-box:hover {
-  border-color: #0d9488;
+  border-color: #0f766e;
   background: #f0fdfa;
+  transform: translateY(-1px);
 }
 
 .wr-selector-box-active {
-  border: 2px solid #0d9488;
+  border: 2px solid #0f766e;
   background: #f0fdfa;
 }

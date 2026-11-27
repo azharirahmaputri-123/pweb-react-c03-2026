@@ -1,11 +1,29 @@
 // [ORANG 3] Custom Hook wajib #1. Dipakai untuk applications & kaptenSkills.
-import type { Dispatch, SetStateAction } from "react";
+import { useState, useEffect, type Dispatch, type SetStateAction } from "react";
 
 export function useLocalStorage<T>(
-  _key: string,
-  _initialValue: T
+  key: string,
+  initialValue: T
 ): [T, Dispatch<SetStateAction<T>>] {
-  // TODO: useState lazy init baca localStorage (try/catch JSON.parse),
-  //       useEffect simpan tiap value berubah. Dukung functional update.
-  throw new Error("TODO: useLocalStorage");
+  // useState lazy init: membaca nilai awal dari localStorage
+  const [storedValue, setStoredValue] = useState<T>(() => {
+    try {
+      const item = window.localStorage.getItem(key);
+      return item ? (JSON.parse(item) as T) : initialValue;
+    } catch (error) {
+      console.error(`Error reading localStorage key "${key}":`, error);
+      return initialValue;
+    }
+  });
+
+  // useEffect untuk menyimpan perubahan nilai ke localStorage
+  useEffect(() => {
+    try {
+      window.localStorage.setItem(key, JSON.stringify(storedValue));
+    } catch (error) {
+      console.error(`Error setting localStorage key "${key}":`, error);
+    }
+  }, [key, storedValue]);
+
+  return [storedValue, setStoredValue];
 }

@@ -9,17 +9,32 @@ export const MODE_SCORE: Record<WorkMode, number> = {
 };
 
 /** Normalisasi gaji ke 0-100 (gaji / gaji tertinggi di antara 2 offer * 100). */
-export function normalizeSalary(_salary: number, _maxSalary: number): number {
-  // TODO
-  throw new Error("TODO: normalizeSalary");
+export function normalizeSalary(salary: number, maxSalary: number): number {
+  if (maxSalary <= 0 || salary <= 0) return 0;
+  return Math.min(100, Math.round((salary / maxSalary) * 100));
 }
 
 export function calcOfferScore(
-  _salary: number,
-  _maxSalary: number,
-  _mode: WorkMode,
-  _skillMatch: number
+  salary: number,
+  maxSalary: number,
+  mode: WorkMode,
+  skillMatch: number
 ): OfferScoreBreakdown {
-  // TODO
-  throw new Error("TODO: calcOfferScore");
+  const normSalary = normalizeSalary(salary, maxSalary);
+  const modeVal = MODE_SCORE[mode] ?? 50;
+  const matchVal = Math.max(0, Math.min(100, skillMatch));
+
+  // Bobot: Gaji 50%, Mode 25%, Skill Match 25%
+  const salaryScore = Number(((normSalary * 50) / 100).toFixed(1));
+  const modeScore = Number(((modeVal * 25) / 100).toFixed(1));
+  const skillScore = Number(((matchVal * 25) / 100).toFixed(1));
+
+  const total = Number((salaryScore + modeScore + skillScore).toFixed(1));
+
+  return {
+    salaryScore,
+    modeScore,
+    skillScore,
+    total,
+  };
 }
