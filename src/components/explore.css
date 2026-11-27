@@ -1,0 +1,24 @@
+.explore { display: grid; grid-template-columns: 260px 1fr; gap: 16px; padding: 16px; }
+@media (max-width: 760px) { .explore { grid-template-columns: 1fr; } }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+.card { border: 1px solid #d0d7de; border-radius: 8px; padding: 12px; margin-bottom: 12px; background: #fff; color: #1f2328; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.between { justify-content: space-between; }
+.muted { color: #656d76; font-size: 13px; }
+.error { color: #cf222e; font-size: 13px; margin: 4px 0; }
+.chips { list-style: none; padding: 0; margin: 8px 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { border: 1px solid #d0d7de; border-radius: 6px; padding: 2px 8px; font-size: 12px; }
+.chip button { border: 0; background: none; cursor: pointer; margin-left: 4px; }
+.chip-ok { background: #dafbe1; border-color: #4ac26b; }
+.chip-missing { background: #ffebe9; border-color: #ff8182; }
+.badge { padding: 2px 8px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+.badge-green { background: #dafbe1; color: #116329; }
+.badge-yellow { background: #fff8c5; color: #7d4e00; }
+.badge-red { background: #ffebe9; color: #a40e26; }
+.state { padding: 24px; text-align: center; color: #656d76; }
+.state-error { color: #cf222e; }
+.field { display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px; }
+.field input, .field select { padding: 6px 8px; }
+.field .invalid { border: 2px solid #cf222e; }
+.modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,.4); display: grid; place-items: center; padding: 16px; }
+.modal { background: #fff; color: #1f2328; border-radius: 8px; padding: 16px; width: min(480px, 100%); max-height: 90vh; overflow: auto; }
